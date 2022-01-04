@@ -15,7 +15,6 @@ class SampleTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        titleLavel.text = "test"
         discriptionLabel.text = "test,test,test,test"
         
     }

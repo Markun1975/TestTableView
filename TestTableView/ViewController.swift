@@ -22,11 +22,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        fruits.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as? SampleTableViewCell {
+            cell.titleLavel.text = fruits[indexPath.row]
             return cell
         }
         return UITableViewCell()
@@ -54,8 +55,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.subviews.forEach { (subview) in
-            if String(describing: type(of: subview.self)) == "UITableViewCellReorderControl" {
-                let control = UIView(frame: CGRect(origin: CGPoint(x: -15, y: 0), size: subview.frame.size))
+            if String(describing: Swift.type(of: subview.self)) == "UITableViewCellReorderControl" {
+                let control = UIView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: subview.frame.size))
                 control.addSubview(subview)
                 subview.center = control.center
                 cell.contentView.addSubview(control)
