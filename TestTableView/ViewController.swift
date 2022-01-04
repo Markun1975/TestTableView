@@ -37,15 +37,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
+            return true
+        }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        //入れ替え時の処理を実装する（データ制御など）
-    }
+            //入れ替え時の処理を実装する（データ制御など）
+        }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .insert
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.subviews.forEach { (subview) in
+            if String(describing: type(of: subview.self)) == "UITableViewCellReorderControl" {
+                let control = UIView(frame: CGRect(origin: CGPoint(x: -15, y: 0), size: subview.frame.size))
+                control.addSubview(subview)
+                subview.center = control.center
+                cell.contentView.addSubview(control)
+            }
+        }
     }
 }
 
