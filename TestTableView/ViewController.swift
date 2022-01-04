@@ -8,35 +8,44 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
 
     @IBOutlet weak var tableView: UITableView!
     //配列fruitsを設定
-        let fruits = ["apple", "orange", "melon", "banana", "pineapple"]
-        
-        override func viewDidLoad() {
+    let fruits = ["apple", "orange", "melon", "banana", "pineapple"]
+    
+    override func viewDidLoad() {
             super.viewDidLoad()
-            // Do any additional setup after loading the view, typically from a nib.
-        }
-
-        override func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
-            // Dispose of any resources that can be recreated.
-        }
-        
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return fruits.count
-        }
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            // セルを取得する
-            let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "SampleCell", for: indexPath)
-            // セルに表示する値を設定する
-            cell.textLabel!.text = fruits[indexPath.row]
-            return cell
+            // Do any additional setup after loading the view.
+        tableView.register(UINib(nibName: "SampleTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomCell")
+        tableView.isEditing = true
+        tableView.allowsSelectionDuringEditing = true
         }
     
-
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as? SampleTableViewCell {
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        self.view.frame.height/10
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        //入れ替え時の処理を実装する（データ制御など）
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .insert
+    }
 }
 

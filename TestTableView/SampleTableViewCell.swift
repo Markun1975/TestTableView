@@ -1,22 +1,23 @@
 //
-//  SampleCellTableViewCell.swift
+//  SampleTableViewCell.swift
 //  TestTableView
 //
-//  Created by Masaki on R 3/12/28.
+//  Created by Masaki on R 4/01/03.
 //
 
 import UIKit
 
-class SampleCellTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var thumbnailImage: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var discriptionLabel: UILabel!
-    
+class SampleTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var thumbnailImage: UIImageView!
+    @IBOutlet weak var titleLavel: UILabel!
+    @IBOutlet weak var discriptionLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        titleLavel.text = "test"
+        discriptionLabel.text = "test,test,test,test"
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

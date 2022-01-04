@@ -13,8 +13,8 @@
 		F45B89A4277B40A6002B9612 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F45B89A2277B40A6002B9612 /* Main.storyboard */; };
 		F45B89A6277B40A7002B9612 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F45B89A5277B40A7002B9612 /* Assets.xcassets */; };
 		F45B89A9277B40A7002B9612 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F45B89A7277B40A7002B9612 /* LaunchScreen.storyboard */; };
-		F45B89B2277B432F002B9612 /* SampleCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45B89B0277B432F002B9612 /* SampleCellTableViewCell.swift */; };
-		F45B89B3277B432F002B9612 /* SampleCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45B89B1277B432F002B9612 /* SampleCellTableViewCell.xib */; };
+		F4658AA52782DFA10049B352 /* SampleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4658AA32782DFA10049B352 /* SampleTableViewCell.swift */; };
+		F4658AA62782DFA10049B352 /* SampleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4658AA42782DFA10049B352 /* SampleTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +26,8 @@
 		F45B89A5277B40A7002B9612 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F45B89A8277B40A7002B9612 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F45B89AA277B40A7002B9612 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F45B89B0277B432F002B9612 /* SampleCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCellTableViewCell.swift; sourceTree = "<group>"; };
-		F45B89B1277B432F002B9612 /* SampleCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleCellTableViewCell.xib; sourceTree = "<group>"; };
+		F4658AA32782DFA10049B352 /* SampleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTableViewCell.swift; sourceTree = "<group>"; };
+		F4658AA42782DFA10049B352 /* SampleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +67,8 @@
 				F45B89A5277B40A7002B9612 /* Assets.xcassets */,
 				F45B89A7277B40A7002B9612 /* LaunchScreen.storyboard */,
 				F45B89AA277B40A7002B9612 /* Info.plist */,
-				F45B89B0277B432F002B9612 /* SampleCellTableViewCell.swift */,
-				F45B89B1277B432F002B9612 /* SampleCellTableViewCell.xib */,
+				F4658AA32782DFA10049B352 /* SampleTableViewCell.swift */,
+				F4658AA42782DFA10049B352 /* SampleTableViewCell.xib */,
 			);
 			path = TestTableView;
 			sourceTree = "<group>";
@@ -132,7 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F45B89A9277B40A7002B9612 /* LaunchScreen.storyboard in Resources */,
-				F45B89B3277B432F002B9612 /* SampleCellTableViewCell.xib in Resources */,
+				F4658AA62782DFA10049B352 /* SampleTableViewCell.xib in Resources */,
 				F45B89A6277B40A7002B9612 /* Assets.xcassets in Resources */,
 				F45B89A4277B40A6002B9612 /* Main.storyboard in Resources */,
 			);
@@ -146,7 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F45B89A1277B40A6002B9612 /* ViewController.swift in Sources */,
-				F45B89B2277B432F002B9612 /* SampleCellTableViewCell.swift in Sources */,
+				F4658AA52782DFA10049B352 /* SampleTableViewCell.swift in Sources */,
 				F45B899D277B40A6002B9612 /* AppDelegate.swift in Sources */,
 				F45B899F277B40A6002B9612 /* SceneDelegate.swift in Sources */,
 			);
