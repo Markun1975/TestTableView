@@ -12,6 +12,7 @@ class SampleTableViewCell: UITableViewCell {
     @IBOutlet weak var thumbnailImage: UIImageView!
     @IBOutlet weak var titleLavel: UILabel!
     @IBOutlet weak var discriptionLabel: UILabel!
+    @IBOutlet weak var sortButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         
         tableView.register(UINib(nibName: "SampleTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomCell")
-//        tableView.isEditing = false
+        tableView.isEditing = false
         tableView.allowsSelectionDuringEditing = true
         }
     
@@ -30,6 +30,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as? SampleTableViewCell {
             cell.titleLavel.text = fruits[indexPath.row]
+            cell.sortButton.tag = indexPath.row
+            cell.sortButton.addTarget(self, action: #selector(self.pushButton(_:)), for: .touchDown)
+            cell.sortButton.addTarget(self, action: #selector(self.leaveButton(_:)), for: .touchUpInside)
             return cell
         }
         return UITableViewCell()
@@ -59,14 +62,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView,
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?{
-        // 編集処理
-        let editAction = UIContextualAction(style: .normal, title: "Edit") { (action, view, completionHandler) in
-            // 編集処理を記述
-            print("Editがタップされた")
-
-            // 実行結果に関わらず記述
-            completionHandler(true)
-        }
         // 削除処理
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
             //削除処理を記述
@@ -76,7 +71,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             completionHandler(true)
         }
         // 定義したアクションをセット
-        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        return UISwipeActionsConfiguration(actions: [deleteAction])
 }
     
     /**
@@ -89,25 +84,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
             //入れ替え時の処理を実装する（データ制御など）
+        tableView.isEditing = false
+        tableView.reloadData()
         }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
     }
     
-//    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-//        return false
-//    }
-//
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.subviews.forEach { (subview) in
             if String(describing: Swift.type(of: subview.self)) == "UITableViewCellReorderControl" {
-                let control = UIView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: subview.frame.size))
+                let control = UIView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 10, height: 10)))
                 control.addSubview(subview)
                 subview.center = control.center
                 cell.contentView.addSubview(control)
             }
         }
+    }
+    
+    @objc private func pushButton(_ sender:UIButton)
+    {
+        if (tableView.isEditing == false){
+            tableView.isEditing = true
+            tableView.reloadData()
+        }
+    }
+    
+    @objc private func leaveButton(_ sender:UIButton)
+    {
+        tableView.isEditing = false
+        tableView.reloadData()
     }
 }
 
