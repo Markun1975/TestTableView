@@ -106,14 +106,49 @@ class TestViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, willDisplayFooterView: UIView, forSection: Int) {
         
     }
-
     
-    // MARK: -
+    // MARK: - ヘッダー、フッター、および行の高さの提供
     
-    // MARK: -
+    //指定された場所の行に使用する高さをデリゲートに要求します。
+    func tableView(_ tableView: UITableView, heightForRowAt: IndexPath) -> CGFloat {
+        
+    }
     
-    // MARK: -
+    //特定のセクションのヘッダーに使用する高さをデリゲートに要求します。
+    func tableView(_ tableView: UITableView, heightForHeaderInSection: Int) -> CGFloat {
+        
+    }
     
+    //特定のセクションのフッターに使用する高さを代理人に尋ねます。
+    func tableView(_ tableView: UITableView, heightForFooterInSection: Int) -> CGFloat {
+        
+    }
+    
+    //特定のディメンションのデフォルト値を表す定数。
+    //class let automaticDimension: CGFloat
+    
+    // MARK: - テーブルのコンテンツの高さの見積もり
+    //指定された位置の行の推定高さをデリゲートに問い合わせます。
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt: IndexPath) -> CGFloat {
+        
+    }
+    
+    //特定のセクションのヘッダーの推定高さをデリゲートに問い合わせます。
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection: Int) -> CGFloat {
+        
+    }
+    
+    //特定のセクションのフッターの推定高さをデリゲートに問い合わせます。
+    func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection: Int) -> CGFloat {
+        
+    }
+    
+    // MARK: - アクセサリ・ビューの管理
+    
+    //
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith: IndexPath) {
+        
+    }
     // MARK: -
     
     // MARK: -
